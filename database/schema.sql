@@ -1,0 +1,26 @@
+CREATE DATABASE IF NOT EXISTS gestao_academica CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE gestao_academica;
+
+CREATE TABLE IF NOT EXISTS cursos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL UNIQUE,
+    turno ENUM('Matutino', 'Vespertino', 'Noturno') NOT NULL,
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS alunos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(180) NOT NULL UNIQUE,
+    data_nascimento DATE NULL,
+    curso_id INT UNSIGNED NOT NULL,
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_alunos_cursos FOREIGN KEY (curso_id) REFERENCES cursos(id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+INSERT IGNORE INTO cursos (nome, turno) VALUES
+('Análise e Desenvolvimento de Sistemas', 'Noturno'),
+('Administração', 'Matutino'),
+('Design Gráfico', 'Vespertino');

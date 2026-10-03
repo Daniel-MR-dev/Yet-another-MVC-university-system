@@ -11,9 +11,8 @@ use App\Services\CursoService;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-$controller = new AlunoController(
-    new AlunoService(new AlunoDao()),
-    new CursoController(new CursoService(new CursoDao())),
-);
+$alunoService = new AlunoService(new AlunoDao());
+$cursoController = new CursoController(new CursoService(new CursoDao()));
 
+$controller = new AlunoController($alunoService, $cursoController);
 $controller->index();

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'projeto/alunos',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '251d6334b87baf5fbe280c4f90540263cceddd73',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -137,9 +137,9 @@
             'dev_requirement' => false,
         ),
         'projeto/alunos' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '251d6334b87baf5fbe280c4f90540263cceddd73',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
